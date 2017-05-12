@@ -1,6 +1,8 @@
 FROM ruby:2.3.0-slim
 LABEL maintainer <contact@ilyaglotov.com>
 
+ENV LANG C.UTF-8
+
 RUN apt-get update \
   && apt-get install -y \
     build-essential \
@@ -29,6 +31,7 @@ RUN chown -R beef /home/beef/beef \
   && rm -rf /var/lib/apt/lists/*
 
 
+VOLUME /home/beef/.beef
 USER beef
 EXPOSE 3000
 ENTRYPOINT ["./beef"]
