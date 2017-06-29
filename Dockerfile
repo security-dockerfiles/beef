@@ -8,7 +8,8 @@ RUN apt-get update \
     build-essential \
     git \
     sqlite3 \
-    libsqlite3-dev
+    libsqlite3-dev \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m beef
 
@@ -27,8 +28,7 @@ RUN chown -R beef /home/beef/beef \
   && apt-get -y purge \
     git \
     build-essential \
-    libsqlite3-dev \
-  && rm -rf /var/lib/apt/lists/*
+    libsqlite3-dev
 
 
 VOLUME /home/beef/.beef
