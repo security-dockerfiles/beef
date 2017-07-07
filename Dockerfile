@@ -16,20 +16,19 @@ RUN useradd -m beef
 RUN git clone --depth=1 \
     --branch=master \
     https://github.com/beefproject/beef.git \
-    /home/beef/beef
+    /home/beef/beef \
+  && rm -rf /home/beef/beef/.git \
+  && apt-get -y purge git
 
 WORKDIR /home/beef/beef
 
-RUN gem install rake && \
-    bundle install
+RUN gem install rake \
+  && bundle install \
+  && apt-get purge -y build-essential \
+                      libsqlite3-dev \
+  && apt-get -y autoremove
 
-RUN chown -R beef /home/beef/beef \
-  && rm -rf /home/beef/beef/.git \
-  && apt-get -y purge \
-    git \
-    build-essential \
-    libsqlite3-dev
-
+RUN chown -R beef /home/beef/beef
 
 VOLUME /home/beef/.beef
 USER beef
