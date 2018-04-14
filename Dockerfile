@@ -1,4 +1,4 @@
-FROM ruby:2.3.0-slim
+FROM ruby:2.3-slim
 LABEL maintainer <contact@ilyaglotov.com>
 
 ENV LANG C.UTF-8
@@ -23,7 +23,7 @@ RUN git clone --depth=1 \
 WORKDIR /home/beef/beef
 
 RUN gem install rake \
-  && bundle install \
+  && bundle install --without test development \
   && apt-get purge -y build-essential \
                       libsqlite3-dev \
   && apt-get -y autoremove
