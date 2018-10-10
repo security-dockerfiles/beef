@@ -21,6 +21,7 @@ RUN apt-get update \
     \
   && cd /home/beef/beef \
   && gem install rake \
+  && bundle add mini_racer \
   && bundle install --without test development \
   \
   && chown -R beef /home/beef/beef \
