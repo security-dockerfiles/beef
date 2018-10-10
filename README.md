@@ -22,6 +22,20 @@ following environment variables:
 * `BEEF_USER`
 * `BEEF_PASSWORD`
 
+Start container with customized credentials:
+
+```sh
+docker run -itd \
+           --name=beef \
+           -p 3000:3000 \
+           -p 6789:6789 \
+           -p 61985:61985 \
+           -p 61986:61986 \
+           -e BEEF_USER=customuser \
+           -e BEEF_PASSWORD=custompassphrase \
+           ilyaglow/beef
+```
+
 ### Why another docker
 
 I couldn't find any suitable Dockerfile out there for the recent version of
@@ -35,4 +49,3 @@ privileges. Most developers seem to ignore this somehow.
 BeEF's Gemfile has gem `therubyracer` which depends on `libv8` gem precompiled
 for `glibc` (Alpine uses `muslc`). One option is to build `libv8` from sources
 and another is to wait for a solution. I stick with the latter for now.
-
