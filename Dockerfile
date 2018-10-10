@@ -38,4 +38,6 @@ USER beef
 
 EXPOSE 3000 6789 61985 61986
 
-ENTRYPOINT ["./beef"]
+COPY entrypoint.sh /tmp/entrypoint.sh
+
+ENTRYPOINT ["/tmp/entrypoint.sh"]
