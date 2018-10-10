@@ -1,11 +1,10 @@
 FROM ruby:2.3-slim
 LABEL maintainer "Ilya Glotov <contact@ilyaglotov.com>"
 
-ENV LANG C.UTF-8
-
-ENV DEPS build-essential \
-         git \
-         libsqlite3-dev
+ENV LANG="C.UTF-8" \
+    DEPS="build-essential \
+          git \
+          libsqlite3-dev"
 
 RUN apt-get update \
   && apt-get install -y \
