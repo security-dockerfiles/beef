@@ -14,7 +14,7 @@ else
 fi
 
 if [ $BEEF_USER ]; then
-    sed -i "s/user: \"beef\"/user: \"$BEEF_USER\"/" config.yaml
+    sed -i "s/user:   \"beef\"/user: \"$BEEF_USER\"/" config.yaml
     CHOSEN_BEEF_USER=$BEEF_USER
 fi
 
