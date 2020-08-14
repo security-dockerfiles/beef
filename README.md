@@ -3,6 +3,20 @@ Docker for BeEF
 
 ## Usage
 
+### Build
+
+```sh
+docker build -t beef https://github.com/security-dockerfiles/beef.git
+```
+
+You can try to build beef from the latest commit:
+```sh
+docker build -t beef --build-args COMMIT=master https://github.com/security-dockerfiles/beef.git
+```
+
+### Run
+
+Run pre-built image from the docker hub:
 ```sh
 docker run -itd \
            --name=beef \
