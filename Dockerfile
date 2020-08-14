@@ -18,8 +18,9 @@ RUN apt-get update \
     --branch=master \
     https://github.com/beefproject/beef.git \
     /home/beef/beef \
-  && chown -R beef:beef /home/beef \
   && cd /home/beef/beef \
+  && git checkout $COMMIT \
+  && chown -R beef:beef /home/beef \
   && bundle install --without test development \
   \
   && rm -rf /home/beef/beef/.git \
