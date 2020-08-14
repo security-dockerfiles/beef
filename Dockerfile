@@ -30,8 +30,6 @@ RUN apt-get update \
 
 WORKDIR /home/beef/beef
 
-VOLUME /home/beef/.beef
-
 USER beef
 
 EXPOSE 3000 6789 61985 61986
