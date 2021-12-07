@@ -1,7 +1,7 @@
-FROM ruby:2.5-slim
-LABEL maintainer "Ilya Glotov <contact@ilyaglotov.com>"
+FROM ruby:2.6-slim
+LABEL maintainer "Ilya Milov <contact@ilya.app>"
 
-ARG COMMIT=8876f69ba618c5872b3fb1bbe543892ad05de54e
+ARG COMMIT=0b4177561858a9a64d7d519153a3fcd7be691991
 
 ENV LANG="C.UTF-8" \
     DEPS="build-essential \
@@ -19,7 +19,9 @@ RUN apt-get update \
   && tar -xzf beef.tgz --strip 1 -C /home/beef/beef \
   && cd /home/beef/beef \
   && chown -R beef:beef /home/beef \
-  && bundle install --without test development \
+  && gem install bundler:2.1.4 \
+  && bundle config set --local without 'test development' \
+  && bundle install \
   \
   && rm -rf beef.tgz \
   && apt-get purge -y $DEPS \
