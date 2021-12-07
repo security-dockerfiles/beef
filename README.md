@@ -11,7 +11,7 @@ docker build -t beef https://github.com/security-dockerfiles/beef.git
 
 You can try to build beef from the latest commit:
 ```sh
-docker build -t beef --build-args COMMIT=master https://github.com/security-dockerfiles/beef.git
+docker build -t beef --build-arg COMMIT=master https://github.com/security-dockerfiles/beef.git
 ```
 
 ### Run
